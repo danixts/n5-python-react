@@ -1,4 +1,4 @@
-import { getAllInfractions, getAllUsers } from "@/services/service";
+import { getAllInfractions } from "@/services/service";
 import { TableInfraction } from "./table-infraction";
 import { useAuthStore } from "@/store/authStore";
 

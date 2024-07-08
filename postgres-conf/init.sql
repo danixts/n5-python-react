@@ -2,7 +2,6 @@ INSERT INTO public."user"
 (created_at, updated_at, email, "password", username, is_active, is_superuser, "type")
 VALUES(now(), now(), 'daniel@gmail.com', '$2a$12$CqysGTzoWRUgy21aEEV5LOmX8EVGZsLgHSLUwNI0GybXukcIS/s7.', 'daniel', true, true, 'user');
 
-
 ALTER TABLE infraction
 ADD CONSTRAINT fk_vehicle_id
 FOREIGN KEY (vehicle_id) REFERENCES vehicle(id);
@@ -45,3 +44,5 @@ $BODY$
     LANGUAGE plpgsql VOLATILE
                      COST 100
                      ROWS 1000;
+
+commit;
