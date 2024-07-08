@@ -19,6 +19,12 @@ postgres-conf
   <img src="img/image-7.png" />
 </p>
 
+```bash
+# Para ingresar al login se debe colocar
+email: daniel
+password : 1234
+```
+
 ### Reporte Publico se puede descargar en formato json o csv
 
 <p align="center">
