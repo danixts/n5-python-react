@@ -1,16 +1,13 @@
 import {
   Bell,
-  Car,
   CarIcon,
   CircleUser,
-  FrameIcon,
   Home,
   LineChart,
   Menu,
   Package,
   Package2,
   ShoppingCart,
-  StopCircle,
   TrafficCone,
   Users,
 } from "lucide-react";

@@ -1,0 +1,54 @@
+services:
+  db-pg:
+    image: postgres:16.1-alpine
+    container_name: postgres-api
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=db_test
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_USER=usr_daniel
+      - PGDATA=/var/lib/postgresql/data/postgres-conf
+    volumes:
+      - ./postgres-conf/pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf:ro
+      - ./postgres-conf/postgresql.conf:/var/lib/postgresql/data/postgresql.conf:ro
+      - ./postgres-conf:/docker-entrypoint-initdb.d
+      - ./postgres-conf/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  backend-fastapi:
+    container_name: backend-fastapi
+    ports:
+      - 9000:8000
+    build:
+      context: ./backend/
+      dockerfile: Dockerfile
+    restart: always
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - db-pg
+
+  front-app:
+    container_name: front-app-react
+    build:
+      context: ./app/
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    restart: always
+    env_file:
+      - ./app/.env
+    depends_on:
+      - backend-fastapi
+      - nginx
+
+  nginx:
+    container_name: app-nginx
+    image: nginx:1.27.0-alpine-slim
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d

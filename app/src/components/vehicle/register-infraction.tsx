@@ -7,7 +7,6 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -21,8 +20,7 @@ import {
   FormLabel,
   FormMessage,
 } from "../ui/form";
-import { createInfraction, createVehicle } from "@/services/service";
-import { vehicleStore } from "@/store/vehicleStore";
+import { createInfraction } from "@/services/service";
 import { useToast } from "../ui/use-toast";
 import { FC } from "react";
 import { useAuthStore } from "@/store/authStore";

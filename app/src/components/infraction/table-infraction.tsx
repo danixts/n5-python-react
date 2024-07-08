@@ -1,10 +1,7 @@
 "use client";
 
 import * as React from "react";
-import {
-  CaretSortIcon,
-  ChevronDownIcon,
-} from "@radix-ui/react-icons";
+import { CaretSortIcon, ChevronDownIcon } from "@radix-ui/react-icons";
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -87,7 +84,9 @@ export const columns: ColumnDef<InfractionModel>[] = [
   },
 ];
 
-export const TableInfraction: React.FC<{ data: InfractionModel[] }> = ({ data }) => {
+export const TableInfraction: React.FC<{ data: InfractionModel[] }> = ({
+  data,
+}) => {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
