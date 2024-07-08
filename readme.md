@@ -1,6 +1,17 @@
 # Registro de infracciones
 
-1. Se realizo la interfaz administrativa algunas capturas
+1. Estructura del proyecto
+  
+```bash
+app -> Se encuentra el proyecto de frontend en react
+backend -> Se encuentra el proyecto backend en FastApi
+
+# Directorios para la configuracion inical del servidor web y de la base de datos
+nginx
+postgres-conf
+```
+
+1.1 Ejemplo de la interfaz administrativa
 
 ### Pagina de login
 
